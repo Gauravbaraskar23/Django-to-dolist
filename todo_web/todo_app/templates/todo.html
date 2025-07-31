@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>Welcome To Do list</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name = "startdete" id="" placeholder="Enter your start date">
+        <input type="text" name = "enddete" id="" placeholder="Enter your end date">
+        <input type="text" name = "taskname" id="" placeholder="Enter your task name">
+        <button>Add Task</button>
+       
+    </form>
+    <div>
+        {% for i in data  %}
+            {{i.startdete}} - {{i.enddete}} - {{i.taskname}} <a href="{% url 'edit' i.id %}">Edit</a>|<a href ="{% url 'delete' i.id %}" >Delete</a>
+        {% endfor %}
+    </div>
+</body>
+</html>
