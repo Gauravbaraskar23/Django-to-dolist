@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <h1>Welcome To Do list</h1>
@@ -16,9 +17,11 @@
        
     </form>
     <div>
+        <table>
         {% for i in data  %}
             {{i.startdete}} - {{i.enddete}} - {{i.taskname}} <a href="{% url 'edit' i.id %}">Edit</a>|<a href ="{% url 'delete' i.id %}" >Delete</a>
         {% endfor %}
+        </table>
     </div>
 </body>
 </html>
